@@ -38,7 +38,7 @@ public abstract class MixinPaintingEntityRenderer extends EntityRenderer<Paintin
      * @author FlashyReese
      * @reason Redirect Lightmap coord with Sodium's EntityLighter.
      */
-    @Redirect(method = "func_229122_a_", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;getLightmapCoordinates(Lnet/minecraft/world/BlockRenderView;Lnet/minecraft/util/math/BlockPos;)I"))
+    @Redirect(method = "method_4074", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/WorldRenderer;getLightmapCoordinates(Lnet/minecraft/world/BlockRenderView;Lnet/minecraft/util/math/BlockPos;)I"))
     public int redirectLightmapCoord(BlockRenderView world, BlockPos pos) {
         if (SodiumClientMod.options().quality.smoothLighting == SodiumGameOptions.LightingQuality.HIGH && this.entity != null) {
             return EntityLighter.getBlendedLight(this, this.entity, tickDelta);

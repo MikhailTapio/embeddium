@@ -34,7 +34,7 @@ public abstract class MixinClientWorld extends World {
         super(mutableWorldProperties, registryKey, dimensionType, profiler, bl, bl2, l);
     }
 
-    @Redirect(method = "doRandomBlockDisplayTicks", at = @At(value = "NEW", target = "java/util/Random"))
+    @Redirect(method = "doRandomBlockDisplayTicks", at = @At(value = "NEW", target = "()Ljava/util/Random;"))
     private Random redirectRandomTickRandom() {
         return new XoRoShiRoRandom();
     }

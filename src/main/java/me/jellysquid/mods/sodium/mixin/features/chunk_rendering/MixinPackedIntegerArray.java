@@ -13,10 +13,6 @@ public class MixinPackedIntegerArray implements PackedIntegerArrayExtended {
     @Final
     private long[] storage;
 
-    @Shadow(remap = false)
-    @Final
-    private int field_232982_f_;
-
     @Shadow
     @Final
     private long maxValue;
@@ -29,6 +25,10 @@ public class MixinPackedIntegerArray implements PackedIntegerArrayExtended {
     @Final
     private int size;
 
+    @Shadow(remap = false)
+    @Final
+    private int field_24079;
+
     @Override
     public <T> void copyUsingPalette(T[] out, ClonedPalette<T> palette) {
         int idx = 0;
@@ -36,7 +36,7 @@ public class MixinPackedIntegerArray implements PackedIntegerArrayExtended {
         for (long word : this.storage) {
             long l = word;
 
-            for (int j = 0; j < this.field_232982_f_; ++j) {
+            for (int j = 0; j < this.field_24079; ++j) {
                 out[idx] = palette.get((int) (l & this.maxValue));
                 l >>= this.elementBits;
 

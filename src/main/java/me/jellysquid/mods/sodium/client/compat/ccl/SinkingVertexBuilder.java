@@ -15,7 +15,7 @@ import java.nio.ByteOrder;
 import java.util.Arrays;
 
 /**
- * A allocation-free {@link IVertexBuilder} implementation
+ * A allocation-free {@link VertexConsumer} implementation
  * which pipes vertices into a {@link ModelVertexSink}.
  *
  * @author KitsuneAlex

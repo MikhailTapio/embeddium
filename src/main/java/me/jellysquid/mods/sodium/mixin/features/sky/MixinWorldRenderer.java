@@ -38,7 +38,7 @@ public class MixinWorldRenderer {
      * outside of water, so the fog should also be covering the sun and sky.</p>
      * 
      * <p>When updating Sodium to new releases of the game, please check for new
-     * ways the fog can be reduced in {@link BackgroundRenderer#applyFog()}.</p>
+     * ways the fog can be reduced in {@link BackgroundRenderer#applyFog(Camera, BackgroundRenderer.FogType, float, boolean)} ()}.</p>
      */
     @Inject(method = "renderSky", at = @At("HEAD"), cancellable = true)
     private void preRenderSky(MatrixStack matrices, float tickDelta, CallbackInfo callbackInfo) {
